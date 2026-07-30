@@ -1,0 +1,63 @@
+@if (store.loading()) {
+  <div class="state">
+    <p-progress-spinner />
+    <p>Cargando preguntas…</p>
+  </div>
+} @else if (store.error(); as errorMsg) {
+  <div class="state">
+    <p>{{ errorMsg }}</p>
+    <p-button label="Volver a temas" (onClick)="backToTopics()" />
+  </div>
+} @else if (finished()) {
+  <div class="result">
+    <h1>Resultado</h1>
+    <p class="score">{{ score() }} / {{ store.totalQuestions() }}</p>
+    <p>Has acertado {{ score() }} de {{ store.totalQuestions() }} preguntas.</p>
+    <p-button label="Volver a temas" (onClick)="backToTopics()" />
+  </div>
+} @else if (store.currentQuestion(); as q) {
+  <header class="quiz-header">
+    <p class="progress-label">
+      Pregunta {{ store.currentIndex() + 1 }} / {{ store.totalQuestions() }}
+    </p>
+    <p-progress-bar [value]="progress()" [showValue]="false" />
+  </header>
+
+  <p-card [header]="q.statement" class="question-card">
+    <div class="options">
+      @for (option of q.options; track $index) {
+        <label class="option" [for]="q.id + '-' + $index">
+          <p-radio-button
+            [name]="q.id"
+            [value]="$index"
+            [ngModel]="store.answers()[q.id]"
+            (ngModelChange)="store.answer(q.id, $event)"
+            [inputId]="q.id + '-' + $index"
+          />
+          <span>{{ option }}</span>
+        </label>
+      }
+    </div>
+  </p-card>
+
+  <nav class="nav">
+    <p-button
+      label="Anterior"
+      icon="pi pi-arrow-left"
+      [outlined]="true"
+      (onClick)="store.previous()"
+      [disabled]="store.isFirst()"
+    />
+
+    @if (store.isLast()) {
+      <p-button label="Finalizar" icon="pi pi-check" severity="success" (onClick)="finish()" />
+    } @else {
+      <p-button
+        label="Siguiente"
+        icon="pi pi-arrow-right"
+        iconPos="right"
+        (onClick)="store.next()"
+      />
+    }
+  </nav>
+}

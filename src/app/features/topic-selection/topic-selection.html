@@ -1,0 +1,31 @@
+@if (loading()) {
+  <div class="state">
+    <p-progress-spinner />
+    <p>Cargando temas…</p>
+  </div>
+} @else if (error(); as errorMsg) {
+  <div class="state">
+    <p>{{ errorMsg }}</p>
+  </div>
+} @else {
+  <header class="page-header">
+    <h1>Elige un tema</h1>
+    <p>Selecciona sobre qué tema quieres que te pregunten</p>
+  </header>
+
+  <section class="grid">
+    @for (topic of topics(); track topic.id) {
+      <p-card [header]="topic.name">
+        @if (topic.description) {
+          <p class="description">{{ topic.description }}</p>
+        }
+        <small class="count">{{ topic.questionCount }} preguntas</small>
+        <div class="actions">
+          <p-button label="Empezar" icon="pi pi-play" (onClick)="start(topic.id)" />
+        </div>
+      </p-card>
+    } @empty {
+      <p>No hay temas disponibles.</p>
+    }
+  </section>
+}

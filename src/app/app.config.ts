@@ -1,11 +1,24 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeng/themes/aura';
 
 import { routes } from './app.routes';
+import { QuizService } from './core/services/quiz';
+import { InMemoryQuizService } from './core/moks/in-memory-quiz';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideRouter(routes)
-  ]
+    provideZonelessChangeDetection(),
+    provideRouter(routes),
+    provideHttpClient(),
+    provideAnimationsAsync(),
+    providePrimeNG({
+      theme: { preset: Aura },
+    }),
+    // 👇 mock mientras no haya backend real. Borrar cuando exista /api
+    { provide: QuizService, useClass: InMemoryQuizService },
+  ],
 };
