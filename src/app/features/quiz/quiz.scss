@@ -71,3 +71,18 @@
   margin: 0;
   color: var(--p-primary-color);
 }
+
+.quiz-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  .progress-label {
+    margin-left: auto; // empuja el contador a la derecha
+  }
+
+  p-progress-bar {
+    flex-basis: 100%; // la barra ocupa toda la fila de abajo
+  }
+}

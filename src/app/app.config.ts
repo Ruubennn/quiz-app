@@ -7,7 +7,7 @@ import Aura from '@primeng/themes/aura';
 
 import { routes } from './app.routes';
 import { QuizService } from './core/services/quiz';
-import { InMemoryQuizService } from './core/moks/in-memory-quiz';
+import { InMemoryQuizService } from './core/mocks/in-memory-quiz';
 
 export const appConfig: ApplicationConfig = {
   providers: [

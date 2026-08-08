@@ -17,6 +17,12 @@
   </div>
 } @else if (store.currentQuestion(); as q) {
   <header class="quiz-header">
+    <p-button
+      label="Volver a temas"
+      icon="pi pi-arrow-left"
+      [text]="true"
+      (onClick)="backToTopics()"
+    />
     <p class="progress-label">
       Pregunta {{ store.currentIndex() + 1 }} / {{ store.totalQuestions() }}
     </p>
