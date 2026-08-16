@@ -13,6 +13,10 @@ const QUESTION_LOADERS: Record<string, () => Promise<Question[]>> = {
   'tema-4': () => import('./mock-t4').then((m) => m.QUESTIONS_TEMA_4),
   'tema-5': () => import('./mock-t5').then((m) => m.QUESTIONS_TEMA_5),
   'tema-6': () => import('./mock-t6').then((m) => m.QUESTIONS_TEMA_6),
+  'tema-7': () => import('./mock-t7').then((m) => m.QUESTIONS_TEMA_7),
+  'tema-8.1': () => import('./mock-t8.1').then((m) => m.QUESTIONS_TEMA_8_1),
+  'tema-8.2': () => import('./mock-t8.2').then((m) => m.QUESTIONS_TEMA_8_2),
+  'tema-9': () => import('./mock-t9').then((m) => m.QUESTIONS_TEMA_9),
 };
 
 @Injectable()

@@ -37,4 +37,28 @@ export const MOCK_TOPICS: Topic[] = [
     description: 'Enzimas',
     questionCount: 194,
   },
+  {
+    id: 'tema-7',
+    name: 'Tema 7',
+    description: 'Técnicas instrumentales',
+    questionCount: 272,
+  },
+  {
+    id: 'tema-8.1',
+    name: 'Tema 8.1',
+    description: 'Fisiología y metabolismo eritrocitario',
+    questionCount: 384,
+  },
+  {
+    id: 'tema-8.2',
+    name: 'Tema 8.2',
+    description: 'Fisiología y metabolismo leucocitario y plaquetar',
+    questionCount: 262,
+  },
+  {
+    id: 'tema-9',
+    name: 'Tema 9',
+    description: 'Coagulación',
+    questionCount: 212,
+  },
 ];
