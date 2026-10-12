@@ -61,4 +61,34 @@ export const MOCK_TOPICS: Topic[] = [
     description: 'Coagulación',
     questionCount: 212,
   },
+  {
+    id: 'tema-10',
+    name: 'Tema 10',
+    description: 'Banco de Sangre',
+    questionCount: 270,
+  },
+  {
+    id: 'tema-11',
+    name: 'Tema 11',
+    description: 'Inmunología',
+    questionCount: 270,
+  },
+  {
+    id: 'tema-12',
+    name: 'Tema 12',
+    description: 'Serología',
+    questionCount: 97,
+  },
+  {
+    id: 'tema-15',
+    name: 'Tema 15',
+    description: 'Gases e iones',
+    questionCount: 183,
+  },
+  {
+    id: 'tema-16',
+    name: 'Tema 16',
+    description: 'Metabolismo lipídico',
+    questionCount: 115,
+  },
 ];
