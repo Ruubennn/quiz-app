@@ -50,6 +50,17 @@ export class Quiz implements OnInit {
     this.finished.set(true);
   }
 
+  restart(): void {
+    this.store.restart();
+    this.finished.set(false);
+  }
+
+  confirmRestart(): void {
+    if (confirm('¿Seguro que quieres reiniciar el tema? Se perderá el progreso.')) {
+      this.restart();
+    }
+  }
+
   backToTopics(): void {
     this.router.navigate(['/topics']);
   }

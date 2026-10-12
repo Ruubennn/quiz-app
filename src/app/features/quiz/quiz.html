@@ -13,6 +13,7 @@
     <h1>Resultado</h1>
     <p class="score">{{ score() }} / {{ store.totalQuestions() }}</p>
     <p>Has acertado {{ score() }} de {{ store.totalQuestions() }} preguntas.</p>
+    <p-button label="Repetir tema" icon="pi pi-refresh" [outlined]="true" (onClick)="restart()" />
     <p-button label="Volver a temas" (onClick)="backToTopics()" />
   </div>
 } @else if (store.currentQuestion(); as q) {
@@ -22,6 +23,13 @@
       icon="pi pi-arrow-left"
       [text]="true"
       (onClick)="backToTopics()"
+    />
+    <p-button
+      label="Reiniciar"
+      icon="pi pi-refresh"
+      [text]="true"
+      severity="secondary"
+      (onClick)="confirmRestart()"
     />
     <p class="progress-label">
       Pregunta {{ store.currentIndex() + 1 }} / {{ store.totalQuestions() }}
